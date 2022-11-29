@@ -1,9 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from "react";
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCalendar } from '@fortawesome/free-solid-svg-icons'
 
 
 import React from 'react';
+import { Chart } from './chart';
+import { Pichart } from './picchart';
 
 
 
@@ -13,9 +18,8 @@ function App() {
     {title:"Earning Monthly",money:"$40,000",color:"#4e73df",div:false,font:"fas fa-calendar fa-2x text-gray-300"},
     {title:"Earning (Annualy)",money:"$215,000",color:"#1cc88a",div:false,font:"fas fa-dollar-sign fa-2x text-gray-300"},
     {title:"Tasks",money:"50%",color:"#36b9cc",div:true,font:"fas fa-clipboard-list fa-2x text-gray-300"},
-    {title:"Pending Request",money:"18",color:"#f6c23e",div:false,font:"fas fa-comments fa-2x text-gray-300"}])
-    console.log(btcard.title)
-
+    {title:"Pending Request",money:"18",color:"#f6c23e",div:false, font:"fas fa-comments fa-2x text-gray-300"}])
+  
 
   return (
    <div>
@@ -27,6 +31,18 @@ function App() {
 
      {btcard.map((btcard)=> <Card title={btcard.title} money={btcard.money} color={btcard.color} div={btcard.div} font={btcard.font}/> )}
      
+    </div>
+    <div className='chart'>
+  <div className='chart1'>
+    <h2>Earnings Overview</h2>
+   
+  <Chart/>
+  </div>
+   <div className='chart2'>
+    <h2>Revenue</h2>
+    
+   <Pichart/>
+   </div>
     </div>
     </div>
   );
@@ -65,6 +81,8 @@ console.log(style.color)
      </div>
      
      <i class={font}></i>
+     <FontAwesomeIcon icon="cofee" />
+
    
     </div>
 
@@ -72,4 +90,5 @@ console.log(style.color)
     </div>
   )
 }
+
 export default App;
